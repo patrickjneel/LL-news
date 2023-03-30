@@ -66,6 +66,8 @@ const App = () => {
         selectCountry={selectCountry}
         selectedRoute={selectedRoute}
         setSelectedRoute={setSelectedRoute}
+        selectCategories={selectCategories}
+        searchArticles={searchArticles}
       />
       <NewsRoutes
         country={country}

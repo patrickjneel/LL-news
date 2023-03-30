@@ -1,6 +1,7 @@
 import { Button } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import stockImage from '../../assets/stockImage.jpeg';
+import './articleDetailsStyles.css';
 
 interface SelectedArticle {
   content: string;
@@ -25,7 +26,7 @@ const ArticleDetails = ({
   const navigate = useNavigate();
 
   return (
-    <div>
+    <div className="article-details-card">
       {selectedArticle ? (
         <div>
           <h3>{title}</h3>
@@ -33,8 +34,11 @@ const ArticleDetails = ({
             className="article-details-image"
             src={urlToImage ? urlToImage : stockImage}
             alt={title}
+            style={{ height: '400px', width: '875px' }}
           />
-          <p>{content}</p>
+          <div className="wrap">
+            <p className="article-content">{content}</p>
+          </div>
         </div>
       ) : null}
       <Button

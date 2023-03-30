@@ -1,4 +1,21 @@
 .article-details-image {
-  height: 400px;
-  width: 900px;
+  max-height: 350px;
+  max-width: 900px;
+}
+
+.article-content {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.wrap {
+  padding: 10px;
+  border: 1px solid darkgray;
+}
+
+.article-details-card {
+  max-width: 950px;
+  border: 1px solid black;
+  margin: 25px;
+  padding: 25px;
 }

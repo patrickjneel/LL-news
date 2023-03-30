@@ -8,6 +8,8 @@ interface HeaderProps {
   selectCountry: any;
   selectedRoute: number;
   setSelectedRoute: any;
+  searchArticles: any;
+  selectCategories: any;
 }
 
 const Header = ({
@@ -15,6 +17,8 @@ const Header = ({
   selectCountry,
   selectedRoute,
   setSelectedRoute,
+  searchArticles,
+  selectCategories,
 }: HeaderProps) => {
   const navigate = useNavigate();
   const linksArr: { name: string; route: string }[] = [
@@ -33,6 +37,8 @@ const Header = ({
             onClick={() => {
               navigate(route);
               setSelectedRoute(index);
+              selectCategories('general');
+              searchArticles('');
             }}
           >
             {name}
