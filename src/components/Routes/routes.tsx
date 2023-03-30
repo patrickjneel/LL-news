@@ -15,6 +15,7 @@ interface RouteProps {
   category: string;
   searchArticles: any;
   searchTerm: string;
+  setSelectedRoute: any;
 }
 
 const NewsRoutes = ({
@@ -26,6 +27,7 @@ const NewsRoutes = ({
   category,
   searchArticles,
   searchTerm,
+  setSelectedRoute,
 }: RouteProps) => {
   return (
     <>
@@ -49,6 +51,7 @@ const NewsRoutes = ({
               category={category}
               newsData={data}
               selectArticle={selectArticle}
+              setSelectedRoute={setSelectedRoute}
             />
           }
         />
@@ -61,12 +64,20 @@ const NewsRoutes = ({
               searchTerm={searchTerm}
               newsData={data}
               selectArticle={selectArticle}
+              setSelectedRoute={setSelectedRoute}
             />
           }
         />
         <Route
           path="/details/:id"
-          element={<ArticleDetails selectedArticle={selectedArticle} />}
+          element={
+            <ArticleDetails
+              selectedArticle={selectedArticle}
+              selectCategories={selectCategories}
+              searchArticles={searchArticles}
+              setSelectedRoute={setSelectedRoute}
+            />
+          }
         />
       </Routes>
     </>

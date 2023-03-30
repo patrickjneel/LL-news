@@ -1,7 +1,10 @@
 import React from 'react';
-import TextField from '@mui/material/TextField';
+import { TextField, Button } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
+
 import { News } from '../../App';
 import NewsCard from '../Card/Card';
+import '../TopNews/cardContainerStyles.css';
 
 interface SearchArticleProps {
   country: string;
@@ -9,6 +12,7 @@ interface SearchArticleProps {
   searchTerm: string;
   newsData: News[];
   selectArticle: any;
+  setSelectedRoute: any;
 }
 
 export const countryMap: { [key: string]: string } = {
@@ -22,7 +26,9 @@ const SearchArticles = ({
   searchTerm,
   newsData,
   selectArticle,
+  setSelectedRoute,
 }: SearchArticleProps) => {
+  const navigate = useNavigate();
   return (
     <div>
       <h3>{`Search top news from ${countryMap[country]} by term:`}</h3>
@@ -37,7 +43,18 @@ const SearchArticles = ({
           searchArticles(event.target.value)
         }
       />
-      {<NewsCard newsData={newsData} selectArticle={selectArticle} />}
+      <div className="card-container">
+        {<NewsCard newsData={newsData} selectArticle={selectArticle} />}
+      </div>
+      <Button
+        onClick={() => {
+          navigate('/');
+          searchArticles('');
+          setSelectedRoute(0);
+        }}
+      >
+        Return to Top News
+      </Button>
     </div>
   );
 };

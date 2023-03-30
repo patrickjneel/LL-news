@@ -1,24 +1,22 @@
-import React, { useState } from 'react';
 import { ButtonGroup, Button } from '@mui/material';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 import './headerStyles.css';
 
 interface HeaderProps {
   country: string;
   selectCountry: any;
+  selectedRoute: number;
+  setSelectedRoute: any;
 }
 
-const Header = ({ country, selectCountry }: HeaderProps) => {
+const Header = ({
+  country,
+  selectCountry,
+  selectedRoute,
+  setSelectedRoute,
+}: HeaderProps) => {
   const navigate = useNavigate();
-  const location = useLocation();
-  const locationMap: { [key: string]: number } = {
-    '/': 0,
-    '/categories': 1,
-    '/search': 2,
-  };
-  const pathIndex: number = locationMap[location.pathname];
-  const [selectedRoute, setSelectedRoute] = useState(pathIndex ?? 0);
   const linksArr: { name: string; route: string }[] = [
     { name: 'Top News', route: '/' },
     { name: 'Categories', route: '/categories' },

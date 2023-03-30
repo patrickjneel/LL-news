@@ -11,6 +11,7 @@ import { useNavigate } from 'react-router-dom';
 import { countryMap } from '../SearchArticles';
 import { News } from '../../App';
 import NewsCard from '../Card/Card';
+import '../TopNews/cardContainerStyles.css';
 
 interface CategoryProps {
   country: string;
@@ -18,6 +19,7 @@ interface CategoryProps {
   category: string;
   newsData: News[];
   selectArticle: any;
+  setSelectedRoute: any;
 }
 
 const Categories = ({
@@ -26,6 +28,7 @@ const Categories = ({
   category,
   newsData,
   selectArticle,
+  setSelectedRoute,
 }: CategoryProps) => {
   const navigate = useNavigate();
   const menuItemsArr: { name: string; value: string }[] = [
@@ -58,11 +61,14 @@ const Categories = ({
           ))}
         </Select>
       </FormControl>
-      {<NewsCard newsData={newsData} selectArticle={selectArticle} />}
+      <div className="card-container">
+        {<NewsCard newsData={newsData} selectArticle={selectArticle} />}
+      </div>
       <Button
         onClick={() => {
           navigate('/');
           selectCategories('general');
+          setSelectedRoute(0);
         }}
       >
         Return to Top News

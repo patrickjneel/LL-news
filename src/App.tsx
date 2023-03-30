@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 
 import Header from './components/Header';
 import NewsRoutes from './components/Routes/routes';
@@ -18,6 +19,14 @@ const App = () => {
   const [selectedArticle, setSelectedArticle] = useState<any>({});
   const [category, setCategory] = useState<string>('general');
   const [searchTerm, setSearchTerm] = useState<string>('');
+  const location = useLocation();
+  const locationMap: { [key: string]: number } = {
+    '/': 0,
+    '/categories': 1,
+    '/search': 2,
+  };
+  const pathIndex: number = locationMap[location.pathname];
+  const [selectedRoute, setSelectedRoute] = useState(pathIndex ?? 0);
 
   const fetchNews = async (
     country: string,
@@ -52,7 +61,12 @@ const App = () => {
 
   return (
     <div className="App">
-      <Header country={country} selectCountry={selectCountry} />
+      <Header
+        country={country}
+        selectCountry={selectCountry}
+        selectedRoute={selectedRoute}
+        setSelectedRoute={setSelectedRoute}
+      />
       <NewsRoutes
         country={country}
         data={data}
@@ -62,6 +76,7 @@ const App = () => {
         category={category}
         searchArticles={searchArticles}
         searchTerm={searchTerm}
+        setSelectedRoute={setSelectedRoute}
       />
     </div>
   );

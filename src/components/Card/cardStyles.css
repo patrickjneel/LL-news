@@ -3,7 +3,7 @@
   min-height: 35px;
 }
 
-img {
+.card-img {
   height: 195px;
   width: 345px;
   border-radius: 7px;

@@ -20,7 +20,11 @@ const NewsCard = ({ newsData, selectArticle }: CardData) => {
             return (
               <div key={title} className="card">
                 <h5 className="article-title">{title}</h5>
-                <img src={urlToImage ? urlToImage : stockImage} alt={title} />
+                <img
+                  className="card-img"
+                  src={urlToImage ? urlToImage : stockImage}
+                  alt={title}
+                />
                 <p className="desc">
                   {description
                     ? description
@@ -40,7 +44,7 @@ const NewsCard = ({ newsData, selectArticle }: CardData) => {
               </div>
             );
           })
-        : 'no news at this time'}
+        : 'No articles matched your search'}
     </>
   );
 };
