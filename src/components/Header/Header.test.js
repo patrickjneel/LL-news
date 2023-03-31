@@ -61,18 +61,4 @@ describe('Header Tests', () => {
     expect(search).toHaveClass('MuiButton-outlined');
     expect(us).toHaveClass('MuiButton-outlined');
   });
-
-  test.skip('should change variant when US button clicked', () => {
-    render(
-      <Router>
-        <Header {...headerProps} />
-      </Router>
-    );
-
-    const usBtn = screen.getByTestId('us-btn');
-    expect(usBtn).toHaveClass('MuiButton-outlined');
-    expect(usBtn).not.toHaveClass('MuiButton-contained');
-    fireEvent.click(usBtn);
-    expect(usBtn).toHaveClass('MuiButton-contained');
-  });
 });

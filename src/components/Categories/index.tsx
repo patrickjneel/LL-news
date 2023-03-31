@@ -37,7 +37,7 @@ const Categories = ({
       <FormControl>
         <InputLabel>Select Category</InputLabel>
         <Select
-          defaultValue=""
+          defaultValue="general"
           value={category}
           label="Select Category"
           style={{ width: '375px' }}

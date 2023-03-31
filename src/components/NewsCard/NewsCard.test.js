@@ -29,16 +29,4 @@ describe('NewsCard Tests', () => {
     expect(description).toBeInTheDocument();
     expect(content).toBeInTheDocument();
   });
-
-  test.skip('should call selectedArticles when clicked', () => {
-    const mockSelectedArticle = jest.fn();
-    render(
-      <Router>
-        <NewsCard selectedArticle={mockSelectedArticle} {...cardProps} />
-      </Router>
-    );
-    const moreBtn = screen.getByTestId('more-btn');
-    fireEvent.click(moreBtn);
-    expect(mockSelectedArticle).toHaveBeenCalled();
-  });
 });

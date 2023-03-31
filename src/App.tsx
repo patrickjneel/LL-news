@@ -34,7 +34,7 @@ const App = () => {
       const newsData = await newsJson.json();
       setData(newsData.articles);
     } catch (e) {
-      console.log(e);
+      console.log(`Error: ${e}`);
     }
   };
 
