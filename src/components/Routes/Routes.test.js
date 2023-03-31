@@ -6,14 +6,14 @@ import Routes from './routes.tsx';
 describe('Route Tests', () => {
   const routeProps = {
     country: 'GB',
-    data: [],
-    selectArticle: jest.fn(),
-    selectedArticle: jest.fn(),
-    selectCategories: jest.fn(),
-    category: jest.fn(),
-    searchArticles: jest.fn(),
-    searchTerm: '',
-    setSelectedRoute: jest.fn(),
+    // data: [],
+    // selectArticle: jest.fn(),
+    // selectedArticle: jest.fn(),
+    // selectCategories: jest.fn(),
+    // category: jest.fn(),
+    // searchArticles: jest.fn(),
+    // searchTerm: '',
+    // setSelectedRoute: jest.fn(),
   };
 
   test('should have Top News as default page', () => {
