@@ -1,4 +1,3 @@
-import React from 'react';
 import { Button } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 
@@ -10,7 +9,7 @@ const NewsCard = ({ newsData, selectArticle }: CardData) => {
   const navigate = useNavigate();
   return (
     <>
-      {newsData.length
+      {newsData?.length
         ? newsData.map(({ title, description, urlToImage }, index) => {
             return (
               <div key={title} className="card">
