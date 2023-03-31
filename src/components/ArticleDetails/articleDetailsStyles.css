@@ -1,6 +1,6 @@
 .article-details-image {
   max-height: 350px;
-  max-width: 900px;
+  max-width: 100%;
 }
 
 .article-content {
@@ -21,7 +21,7 @@
   padding: 25px;
 }
 
-@media only screen and (max-width: 380px) {
+@media only screen and (max-width: 480px) {
   .article-details-image {
     max-height: 150px;
     max-width: 275px;
