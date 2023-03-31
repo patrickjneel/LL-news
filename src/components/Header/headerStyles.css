@@ -4,3 +4,11 @@
   margin: 15px;
   min-height: 50px;
 }
+
+@media only screen and (max-width: 380px) {
+  .header-container {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
