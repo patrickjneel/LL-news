@@ -2,18 +2,9 @@ import React from 'react';
 import { TextField, Button } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 
-import { News } from '../../App';
 import NewsCard from '../Card/Card';
 import '../TopNews/cardContainerStyles.css';
-
-interface SearchArticleProps {
-  country: string;
-  searchArticles: (searchTerm: string) => void;
-  searchTerm: string;
-  newsData: News[];
-  selectArticle: any;
-  setSelectedRoute: (index: number) => void;
-}
+import { SearchArticleProps } from '../../types/types';
 
 export const countryMap: { [key: string]: string } = {
   GB: 'Great Britain',

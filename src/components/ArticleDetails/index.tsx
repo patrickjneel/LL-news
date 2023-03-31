@@ -2,19 +2,7 @@ import { Button } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import stockImage from '../../assets/stockImage.jpeg';
 import './articleDetailsStyles.css';
-
-interface SelectedArticle {
-  content: string;
-  title: string;
-  urlToImage: string;
-}
-
-interface SelectedArticleProps {
-  selectedArticle: SelectedArticle;
-  searchArticles: (searchTerm: string) => void;
-  selectCategories: (category: string) => void;
-  setSelectedRoute: (index: number) => void;
-}
+import { SelectedArticleProps } from '../../types/types';
 
 const ArticleDetails = ({
   selectedArticle,

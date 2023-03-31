@@ -8,18 +8,9 @@ import {
 import { useNavigate } from 'react-router-dom';
 
 import { countryMap } from '../SearchArticles';
-import { News } from '../../App';
 import NewsCard from '../Card/Card';
 import '../TopNews/cardContainerStyles.css';
-
-interface CategoryProps {
-  country: string;
-  selectCategories: (category: string) => void;
-  category: string;
-  newsData: News[];
-  selectArticle: any;
-  setSelectedRoute: (index: number) => void;
-}
+import { CategoryProps } from '../../types/types';
 
 const Categories = ({
   country,

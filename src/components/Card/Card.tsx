@@ -2,14 +2,9 @@ import React from 'react';
 import { Button } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 
-import { News } from '../../App';
+import { CardData } from '../../types/types';
 import './cardStyles.css';
 import stockImage from '../../assets/stockImage.jpeg';
-
-interface CardData {
-  newsData: News[];
-  selectArticle: any;
-}
 
 const NewsCard = ({ newsData, selectArticle }: CardData) => {
   const navigate = useNavigate();

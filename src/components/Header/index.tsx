@@ -2,15 +2,7 @@ import { ButtonGroup, Button } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 
 import './headerStyles.css';
-
-interface HeaderProps {
-  country: string;
-  selectCountry: (countryName: string) => void;
-  selectedRoute: number;
-  setSelectedRoute: (index: number) => void;
-  searchArticles: (searchTerm: string) => void;
-  selectCategories: (category: string) => void;
-}
+import { HeaderProps } from '../../types/types';
 
 const Header = ({
   country,

@@ -4,19 +4,7 @@ import TopNews from '../TopNews';
 import SearchArticles from '../SearchArticles';
 import Categories from '../Categories';
 import ArticleDetails from '../ArticleDetails';
-import { News } from '../../App';
-
-interface RouteProps {
-  country: string;
-  data: News[];
-  selectArticle: any;
-  selectedArticle: News;
-  selectCategories: (category: string) => void;
-  category: string;
-  searchArticles: (searchTerm: string) => void;
-  searchTerm: string;
-  setSelectedRoute: (index: number) => void;
-}
+import { NewsRouteProps } from '../../types/types';
 
 const NewsRoutes = ({
   country,
@@ -28,7 +16,7 @@ const NewsRoutes = ({
   searchArticles,
   searchTerm,
   setSelectedRoute,
-}: RouteProps) => {
+}: NewsRouteProps) => {
   return (
     <>
       <Routes>

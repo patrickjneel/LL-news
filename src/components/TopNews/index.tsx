@@ -1,13 +1,7 @@
 import NewsCard from '../Card/Card';
-import { News } from '../../App';
 import './cardContainerStyles.css';
 import { countryMap } from '../SearchArticles';
-
-interface CardContainerProps {
-  country: string;
-  newsData: News[];
-  selectArticle: any;
-}
+import { CardContainerProps } from '../../types/types';
 
 const CardContainer = ({
   country,

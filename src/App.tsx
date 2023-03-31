@@ -5,13 +5,7 @@ import Header from './components/Header';
 import NewsRoutes from './components/Routes/routes';
 import { REACT_APP_NEWS_KEY } from './key';
 import './App.css';
-
-export interface News {
-  title: string;
-  description: string;
-  content: string;
-  urlToImage: string;
-}
+import { News } from './types/types';
 
 const App = () => {
   const [data, setData] = useState<News[]>([]);
