@@ -2,7 +2,7 @@ import React from 'react';
 import { TextField, Button } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 
-import NewsCard from '../Card/Card';
+import NewsCard from '../NewsCard';
 import '../TopNews/cardContainerStyles.css';
 import { SearchArticleProps } from '../../types/types';
 

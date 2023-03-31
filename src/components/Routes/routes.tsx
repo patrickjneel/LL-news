@@ -4,6 +4,7 @@ import TopNews from '../TopNews';
 import SearchArticles from '../SearchArticles';
 import Categories from '../Categories';
 import ArticleDetails from '../ArticleDetails';
+import NotFound from '../NotFound';
 import { NewsRouteProps } from '../../types/types';
 
 const NewsRoutes = ({
@@ -20,6 +21,10 @@ const NewsRoutes = ({
   return (
     <>
       <Routes>
+        <Route
+          path="*"
+          element={<NotFound setSelectedRoute={setSelectedRoute} />}
+        />
         <Route
           path="/"
           element={

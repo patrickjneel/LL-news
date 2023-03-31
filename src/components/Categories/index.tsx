@@ -8,7 +8,7 @@ import {
 import { useNavigate } from 'react-router-dom';
 
 import { countryMap } from '../SearchArticles';
-import NewsCard from '../Card/Card';
+import NewsCard from '../NewsCard';
 import '../TopNews/cardContainerStyles.css';
 import { CategoryProps } from '../../types/types';
 

@@ -26,6 +26,7 @@ const NewsCard = ({ newsData, selectArticle }: CardData) => {
                 </p>
                 <div className="btn-section">
                   <Button
+                    data-testid="more-btn"
                     onClick={() => {
                       navigate(`/details/${title}`);
                       selectArticle(index);

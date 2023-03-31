@@ -1,4 +1,4 @@
-import NewsCard from '../Card/Card';
+import NewsCard from '../NewsCard';
 import './cardContainerStyles.css';
 import { countryMap } from '../SearchArticles';
 import { CardContainerProps } from '../../types/types';

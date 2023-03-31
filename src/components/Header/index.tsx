@@ -47,6 +47,7 @@ const Header = ({
         </Button>
         <Button
           value="US"
+          data-testid="us-btn"
           variant={country === 'US' ? 'contained' : 'outlined'}
           onClick={() => selectCountry('US')}
         >
