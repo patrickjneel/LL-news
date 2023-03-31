@@ -11,11 +11,11 @@ interface RouteProps {
   data: News[];
   selectArticle: any;
   selectedArticle: News;
-  selectCategories: any;
+  selectCategories: (category: string) => void;
   category: string;
-  searchArticles: any;
+  searchArticles: (searchTerm: string) => void;
   searchTerm: string;
-  setSelectedRoute: any;
+  setSelectedRoute: (index: number) => void;
 }
 
 const NewsRoutes = ({

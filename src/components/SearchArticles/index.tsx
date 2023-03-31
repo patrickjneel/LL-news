@@ -8,11 +8,11 @@ import '../TopNews/cardContainerStyles.css';
 
 interface SearchArticleProps {
   country: string;
-  searchArticles: any;
+  searchArticles: (searchTerm: string) => void;
   searchTerm: string;
   newsData: News[];
   selectArticle: any;
-  setSelectedRoute: any;
+  setSelectedRoute: (index: number) => void;
 }
 
 export const countryMap: { [key: string]: string } = {

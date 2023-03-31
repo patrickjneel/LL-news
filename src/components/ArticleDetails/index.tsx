@@ -11,9 +11,9 @@ interface SelectedArticle {
 
 interface SelectedArticleProps {
   selectedArticle: SelectedArticle;
-  searchArticles: any;
-  selectCategories: any;
-  setSelectedRoute: any;
+  searchArticles: (searchTerm: string) => void;
+  selectCategories: (category: string) => void;
+  setSelectedRoute: (index: number) => void;
 }
 
 const ArticleDetails = ({

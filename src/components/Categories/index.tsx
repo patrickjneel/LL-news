@@ -1,4 +1,3 @@
-import React from 'react';
 import {
   InputLabel,
   MenuItem,
@@ -15,11 +14,11 @@ import '../TopNews/cardContainerStyles.css';
 
 interface CategoryProps {
   country: string;
-  selectCategories: any;
+  selectCategories: (category: string) => void;
   category: string;
   newsData: News[];
   selectArticle: any;
-  setSelectedRoute: any;
+  setSelectedRoute: (index: number) => void;
 }
 
 const Categories = ({

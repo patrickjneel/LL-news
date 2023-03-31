@@ -26,7 +26,7 @@ const App = () => {
     '/search': 2,
   };
   const pathIndex: number = locationMap[location.pathname];
-  const [selectedRoute, setSelectedRoute] = useState(pathIndex ?? 0);
+  const [selectedRoute, setSelectedRoute] = useState(pathIndex);
 
   const fetchNews = async (
     country: string,
@@ -48,35 +48,28 @@ const App = () => {
     fetchNews(country, category, searchTerm);
   }, [country, category, searchTerm]);
 
-  const selectCountry = (countryName: string) => setCountry(countryName);
-
-  const selectCategories = (categoryName: string): any =>
-    setCategory(categoryName);
-
-  const selectArticle = (articleIndex: number): void => {
+  const selectArticle = (articleIndex: number) => {
     setSelectedArticle(data.find((_, index: number) => index === articleIndex));
   };
-
-  const searchArticles = (searchTerm: string): any => setSearchTerm(searchTerm);
 
   return (
     <div className="App">
       <Header
         country={country}
-        selectCountry={selectCountry}
+        selectCountry={setCountry}
         selectedRoute={selectedRoute}
         setSelectedRoute={setSelectedRoute}
-        selectCategories={selectCategories}
-        searchArticles={searchArticles}
+        selectCategories={setCategory}
+        searchArticles={setSearchTerm}
       />
       <NewsRoutes
         country={country}
         data={data}
         selectArticle={selectArticle}
         selectedArticle={selectedArticle}
-        selectCategories={selectCategories}
+        selectCategories={setCategory}
         category={category}
-        searchArticles={searchArticles}
+        searchArticles={setSearchTerm}
         searchTerm={searchTerm}
         setSelectedRoute={setSelectedRoute}
       />

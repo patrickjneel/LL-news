@@ -5,11 +5,11 @@ import './headerStyles.css';
 
 interface HeaderProps {
   country: string;
-  selectCountry: any;
+  selectCountry: (countryName: string) => void;
   selectedRoute: number;
-  setSelectedRoute: any;
-  searchArticles: any;
-  selectCategories: any;
+  setSelectedRoute: (index: number) => void;
+  searchArticles: (searchTerm: string) => void;
+  selectCategories: (category: string) => void;
 }
 
 const Header = ({
