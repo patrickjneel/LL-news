@@ -1,8 +1,10 @@
+/* eslint-disable testing-library/no-unnecessary-act */
 import { render, screen, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 import { MemoryRouter } from 'react-router-dom';
-import { lazy, Suspense } from 'react';
-const Routes = lazy(() => import('./routes.tsx'));
+import { Suspense } from 'react';
+import Routes from './routes';
+import { act } from 'react-dom/test-utils';
 
 describe('Route Tests', () => {
   const routeProps = {
@@ -18,25 +20,33 @@ describe('Route Tests', () => {
   };
 
   test('should have Top News as default page', async () => {
-    const homeRoute = '/';
-    render(
-      <MemoryRouter initialEntries={[homeRoute]}>
-        <Suspense fallback={<div>loading...</div>}>
-          <Routes {...routeProps} />
-        </Suspense>
-      </MemoryRouter>
-    );
-    const text = await screen.findByText('Top News From Great Britain');
-    expect(text).toBeInTheDocument();
+    await act(async () => {
+      render(
+        <MemoryRouter initialEntries={['/']}>
+          <Suspense fallback={<div>loading...</div>}>
+            <Routes {...routeProps} />
+          </Suspense>
+        </MemoryRouter>
+      );
+    });
+
+    await waitFor(() => {
+      expect(
+        screen.getByText('Top News From Great Britain')
+      ).toBeInTheDocument();
+    });
   });
 
   test('should route to error page for none existent route', async () => {
-    const badRoute = '/bad-route';
-    render(
-      <MemoryRouter initialEntries={[badRoute]}>
-        <Routes />
-      </MemoryRouter>
-    );
+    await act(async () => {
+      render(
+        <MemoryRouter initialEntries={['/bad-route']}>
+          <Suspense fallback={<div>loading...</div>}>
+            <Routes {...routeProps} />
+          </Suspense>
+        </MemoryRouter>
+      );
+    });
 
     await waitFor(() => {
       expect(
@@ -46,12 +56,15 @@ describe('Route Tests', () => {
   });
 
   test('should route to Categories page', async () => {
-    const categoriesRoute = '/categories';
-    render(
-      <MemoryRouter initialEntries={[categoriesRoute]}>
-        <Routes {...routeProps} />
-      </MemoryRouter>
-    );
+    await act(async () => {
+      render(
+        <MemoryRouter initialEntries={['/categories']}>
+          <Suspense fallback={<div>loading...</div>}>
+            <Routes {...routeProps} />
+          </Suspense>
+        </MemoryRouter>
+      );
+    });
 
     await waitFor(() => {
       expect(
@@ -61,12 +74,15 @@ describe('Route Tests', () => {
   });
 
   test('should route to Search page', async () => {
-    const searchRoute = '/search';
-    render(
-      <MemoryRouter initialEntries={[searchRoute]}>
-        <Routes {...routeProps} />
-      </MemoryRouter>
-    );
+    await act(async () => {
+      render(
+        <MemoryRouter initialEntries={['/search']}>
+          <Suspense fallback={<div>loading...</div>}>
+            <Routes {...routeProps} />
+          </Suspense>
+        </MemoryRouter>
+      );
+    });
 
     await waitFor(() => {
       expect(
