@@ -1,7 +1,8 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
-import { BrowserRouter as Router, MemoryRouter } from 'react-router-dom';
-import Routes from './routes.tsx';
+import { MemoryRouter } from 'react-router-dom';
+import { lazy, Suspense } from 'react';
+const Routes = lazy(() => import('./routes.tsx'));
 
 describe('Route Tests', () => {
   const routeProps = {
@@ -16,17 +17,20 @@ describe('Route Tests', () => {
     setSelectedRoute: jest.fn(),
   };
 
-  test('should have Top News as default page', () => {
+  test('should have Top News as default page', async () => {
+    const homeRoute = '/';
     render(
-      <Router>
-        <Routes {...routeProps} />
-      </Router>
+      <MemoryRouter initialEntries={[homeRoute]}>
+        <Suspense fallback={<div>loading...</div>}>
+          <Routes {...routeProps} />
+        </Suspense>
+      </MemoryRouter>
     );
-
-    expect(screen.getByText('Top News From Great Britain')).toBeInTheDocument();
+    const text = await screen.findByText('Top News From Great Britain');
+    expect(text).toBeInTheDocument();
   });
 
-  test('should route to error page for none existent route', () => {
+  test('should route to error page for none existent route', async () => {
     const badRoute = '/bad-route';
     render(
       <MemoryRouter initialEntries={[badRoute]}>
@@ -34,12 +38,14 @@ describe('Route Tests', () => {
       </MemoryRouter>
     );
 
-    expect(
-      screen.getByText("It appears you're lost let me help.")
-    ).toBeInTheDocument();
+    await waitFor(() => {
+      expect(
+        screen.getByText("It appears you're lost let me help.")
+      ).toBeInTheDocument();
+    });
   });
 
-  test('should route to Categories page', () => {
+  test('should route to Categories page', async () => {
     const categoriesRoute = '/categories';
     render(
       <MemoryRouter initialEntries={[categoriesRoute]}>
@@ -47,12 +53,14 @@ describe('Route Tests', () => {
       </MemoryRouter>
     );
 
-    expect(
-      screen.getByText('Select News Category from Great Britain')
-    ).toBeInTheDocument();
+    await waitFor(() => {
+      expect(
+        screen.getByText('Select News Category from Great Britain')
+      ).toBeInTheDocument();
+    });
   });
 
-  test('should route to Search page', () => {
+  test('should route to Search page', async () => {
     const searchRoute = '/search';
     render(
       <MemoryRouter initialEntries={[searchRoute]}>
@@ -60,8 +68,10 @@ describe('Route Tests', () => {
       </MemoryRouter>
     );
 
-    expect(
-      screen.getByText('Search top news from Great Britain by term:')
-    ).toBeInTheDocument();
+    await waitFor(() => {
+      expect(
+        screen.getByText('Search top news from Great Britain by term:')
+      ).toBeInTheDocument();
+    });
   });
 });

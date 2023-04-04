@@ -24,8 +24,8 @@ const App = () => {
 
   const fetchNews = async (
     country: string,
-    category: string = 'general',
-    searchTerm: string = ''
+    category: string,
+    searchTerm: string
   ) => {
     try {
       const newsJson = await fetch(

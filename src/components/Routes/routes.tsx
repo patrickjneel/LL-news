@@ -21,7 +21,7 @@ const NewsRoutes = ({
 }: NewsRouteProps) => {
   return (
     <>
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={null}>
         <Routes>
           <Route
             path="*"
